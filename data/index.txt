@@ -1,0 +1,11 @@
+domain1: 網域
+domain2: 網域階層
+hostname: 端點
+ip: IP位址
+mac: MAC位址
+os: 平台
+arch: 架構
+account: 登入使用者
+agent: 用戶端
+pattern: 本機雲端病毒碼
+offline_datetime: 離線時間
