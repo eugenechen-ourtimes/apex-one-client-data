@@ -2,6 +2,7 @@ import argparse
 import csv
 import datetime
 from os.path import join
+import sys
 
 import constants
 import utils
@@ -86,26 +87,26 @@ def main(args):
 
     if base_agent is None:
         print("need to provide a security agent version as a base")
-        return 0
+        sys.exit(0)
     if base_pattern is None:
         print("need to provide a virus pattern version as a base")
-        return 0
+        sys.exit(0)
 
     if base_datetime is None:
         print("need to provide a date and a time as a base")
-        return 0
+        sys.exit(0)
 
     if not utils.isAgentValid(base_agent):
         print("invalid security agent version")
-        return 0
+        sys.exit(0)
     if not utils.isPatternValid(base_pattern):
         print("invalid virus pattern version")
-        return 0
+        sys.exit(0)
 
     searchResults = searchComputers(base_agent, base_pattern, base_datetime)
     if len(searchResults) == 0:
         print("no results match your search criteria")
-        return 0
+        sys.exit(0)
 
     def ipKey(computer):
         return utils.ip2int(computer["ip"])

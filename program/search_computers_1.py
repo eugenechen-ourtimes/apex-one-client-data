@@ -1,6 +1,7 @@
 import argparse
 import csv
 from os.path import join
+import sys
 
 import constants
 import utils
@@ -44,12 +45,12 @@ def main(args):
     mac = args.mac
     if hostname is None and ip is None and mac is None:
         print("need to provide a hostname, an IP address, or a MAC address")
-        return 0
+        sys.exit(0)
 
     searchResults = searchComputers(hostname, ip, mac)
     if len(searchResults) == 0:
         print("no results match your search criteria")
-        return 0
+        sys.exit(0)
 
     def ipKey(computer):
         return utils.ip2int(computer["ip"])
