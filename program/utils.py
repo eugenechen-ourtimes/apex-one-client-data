@@ -59,7 +59,7 @@ def isPatterNewerOrTheSame(pattern1, pattern2):
     return v12 >= v22
 
 
-def isEducationBureau(hostname, ip):
+def isEdub(hostname, ip):
     return (
         hostname.startswith("EDUB")
     ) or (
@@ -73,10 +73,10 @@ def isEducationBureau(hostname, ip):
         ip.startswith("172.20.42.")
     )
 
-def isPoliceBureau(hostname, ip):
+def isPlbu(hostname, ip):
     return False
 
-def isLandAdministrationBureau(hostname, ip):
+def isLabu(hostname, ip):
     return (
         hostname.startswith("LABU") or
         hostname.startswith("LAND")   
@@ -86,29 +86,30 @@ def isLandAdministrationBureau(hostname, ip):
         ip.startswith("192.168.217.")
     )
 
-def isLocalTaxBureau(hostname, ip):
+def isLtbu(hostname, ip):
     return False
 
-def isDigitalAffairsBureau(hostname, ip):
+def isDabu(hostname, ip):
     return (
         hostname.startswith("DABU") or
         hostname.startswith("IFMC")
     ) or (
+        ip.startswith("192.168.86.") or
         ip.startswith("192.168.137.") or
         ip.startswith("192.168.138.")
     )
 
-def isPublicLibrary(hostname, ip):
+def isTcpl(hostname, ip):
     return False
 
 def isBbLevelAgency(hostname, ip):
     return (
-        isEducationBureau(hostname, ip) or
-        isPoliceBureau(hostname, ip) or
-        isLandAdministrationBureau(hostname, ip) or
-        isLocalTaxBureau(hostname, ip) or
-        isDigitalAffairsBureau(hostname, ip) or
-        isPublicLibrary(hostname, ip)
+        isEdub(hostname, ip) or
+        isPlbu(hostname, ip) or
+        isLabu(hostname, ip) or
+        isLtbu(hostname, ip) or
+        isDabu(hostname, ip) or
+        isTcpl(hostname, ip)
     )
 
 
